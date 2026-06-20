@@ -341,8 +341,15 @@
         }
     </style>
     
+    <script src="https://cdn.jsdelivr.net/npm/appwrite@14.0.1"></script>
     <script>
-        const API_URL = 'http://localhost:3000/api';
+        const { Client, Databases, ID, Query } = Appwrite;
+        const appwriteClient = new Client()
+            .setEndpoint('https://cloud.appwrite.io/v1')
+            .setProject('6a36c593002500c98660');
+        const databases = new Databases(appwriteClient);
+        const DB_ID = '6a36cb6c0009fc808a1f';
+        const COL_ID = 'reviews';
     </script>
 </head>
 <body>
@@ -666,68 +673,26 @@
         }
 
         // --- Reviews Logic ---
-        let allReviews = [];
-
         async function loadReviews() {
             try {
-                let defaultReviews = [];
-                if (typeof reviews !== 'undefined') {
-                    defaultReviews = JSON.parse(JSON.stringify(reviews));
-                }
+                const res = await databases.listDocuments(DB_ID, COL_ID, [
+                    Query.limit(500), 
+                    Query.orderDesc('$createdAt')
+                ]);
                 
-                const response = await fetch(`${API_URL}/reviews`);
-                const error = !response.ok;
-                const remoteReviews = error ? null : await response.json();
+                allReviews = res.documents.map(doc => ({
+                    id: doc.$id,
+                    name: doc.name,
+                    text: doc.text,
+                    date: doc.date,
+                    isHaraj: doc.isHaraj !== false
+                }));
                 
-                if (error) throw error;
-                const localReviews = remoteReviews || [];
-                
-                const deletedReviews = JSON.parse(localStorage.getItem('deleted_reviews') || '[]');
-                const editedReviews = JSON.parse(localStorage.getItem('edited_reviews') || '{}');
-
-                allReviews = [];
-
-                // Assign IDs to default reviews
-                defaultReviews.forEach(r => {
-                    r.id = generateId(r.name, r.text);
-                    r.isLocal = false;
-                });
-
-                // Merge lists
-                localReviews.forEach(lr => { lr.isLocal = true; allReviews.push(lr); });
-                defaultReviews.forEach(dr => {
-                    if(!allReviews.find(r => r.id === dr.id)) allReviews.push(dr);
-                });
-
-                // Apply edits and deletions
-                const visibleReviews = allReviews.filter(r => !deletedReviews.includes(r.id)).map(r => {
-                    if(editedReviews[r.id]) {
-                        return { ...r, name: editedReviews[r.id].name, text: editedReviews[r.id].text, isHaraj: editedReviews[r.id].isHaraj };
-                    }
-                    return r;
-                });
-
-                // Apply custom order
-                const order = JSON.parse(localStorage.getItem('reviews_order') || '[]');
-                if (order.length > 0) {
-                    visibleReviews.sort((a, b) => {
-                        const indexA = order.indexOf(a.id);
-                        const indexB = order.indexOf(b.id);
-                        if (indexA === -1 && indexB === -1) return 0;
-                        if (indexA === -1) return -1;
-                        if (indexB === -1) return 1;
-                        return indexA - indexB;
-                    });
-                }
-                
-                // Update the global reference used by drag/drop
-                allReviews = visibleReviews;
-
-                renderReviews(visibleReviews);
+                renderReviews(allReviews);
             } catch(e) {
                 console.error("Error loading reviews", e);
                 const harajContainer = document.getElementById('harajReviewsContainer');
-                if(harajContainer) harajContainer.innerHTML = '<p style="color: red;">حدث خطأ أثناء تحميل التقييمات.</p>';
+                if(harajContainer) harajContainer.innerHTML = '<p style="color: var(--danger);">حدث خطأ أثناء تحميل التقييمات من Appwrite.</p>';
             }
         }
 
@@ -857,24 +822,21 @@
             btn.innerText = "جاري الحفظ...";
             btn.disabled = true;
 
-            if (isLocal) {
-                const response = await fetch(`${API_URL}/reviews/${id}`, {
-                    method: 'PUT',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ name: newName, text: newText, isHaraj: newIsHaraj })
+            try {
+                await databases.updateDocument(DB_ID, COL_ID, id, {
+                    name: newName,
+                    text: newText,
+                    isHaraj: newIsHaraj
                 });
-                const error = !response.ok;
-                if (error) alert("حدث خطأ أثناء التحديث.");
-            } else {
-                const edited = JSON.parse(localStorage.getItem('edited_reviews') || '{}');
-                edited[id] = { name: newName, text: newText, isHaraj: newIsHaraj };
-                localStorage.setItem('edited_reviews', JSON.stringify(edited));
+                alert('تم حفظ التعديلات بنجاح!');
+                await loadReviews();
+            } catch(e) {
+                alert("حدث خطأ أثناء التحديث.");
+                console.error(e);
             }
             
             btn.innerText = originalText;
             btn.disabled = false;
-            alert('تم حفظ التعديلات بنجاح!');
-            await loadReviews();
         }
 
         async function deleteReview(id, isLocal) {
@@ -885,18 +847,16 @@
             btn.innerText = "جاري الحذف...";
             btn.disabled = true;
 
-            if (isLocal) {
-                const { error } = await supabaseClient.from('reviews').delete().eq('id', id);
-                if (error) alert("حدث خطأ أثناء الحذف.");
-            } else {
-                let deletedReviews = JSON.parse(localStorage.getItem('deleted_reviews') || '[]');
-                if(!deletedReviews.includes(id)) deletedReviews.push(id);
-                localStorage.setItem('deleted_reviews', JSON.stringify(deletedReviews));
+            try {
+                await databases.deleteDocument(DB_ID, COL_ID, id);
+                await loadReviews();
+            } catch(e) {
+                alert("حدث خطأ أثناء الحذف.");
+                console.error(e);
             }
             
             btn.innerText = originalText;
             btn.disabled = false;
-            await loadReviews();
         }
 
         async function addHarajReview() {
@@ -910,32 +870,19 @@
             const mm = String(today.getMonth() + 1).padStart(2, '0');
             const dd = String(today.getDate()).padStart(2, '0');
 
-            const newReview = {
-                id: 'rev_' + Date.now(),
-                name: name,
-                date: yyyy + '/' + mm + '/' + dd,
-                text: text,
-                rating: "positive",
-                isHaraj: true
-            };
-
-            const response = await fetch(`${API_URL}/reviews`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(newReview)
-            });
-            if (!response.ok) {
+            try {
+                await databases.createDocument(DB_ID, COL_ID, ID.unique(), {
+                    name: name,
+                    date: yyyy + '/' + mm + '/' + dd,
+                    text: text,
+                    isHaraj: true
+                });
+                alert("تم الإضافة بنجاح!");
+                await loadReviews();
+            } catch(e) {
                 alert("حدث خطأ أثناء الإضافة.");
-                return;
-            } else {
-                alert("تعذر الاتصال بقاعدة البيانات.");
-                return;
+                console.error(e);
             }
-            
-            // Dispatch storage event to update index.html immediately if open
-            localStorage.setItem('site_reviews', Date.now().toString());
-            
-            await loadReviews();
         }
 
         function changePassword() {

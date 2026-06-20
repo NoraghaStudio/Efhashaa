@@ -17,7 +17,8 @@
 
 <body>
     <!-- Header -->
-    <header class="header" id="header" style="background: rgba(255,255,255,0.92); border-bottom: 1px solid var(--border);">
+    <header class="header" id="header"
+        style="background: rgba(255,255,255,0.92); border-bottom: 1px solid var(--border);">
         <div class="container header-inner">
             <div class="logo-area">
                 <img src="assets/images/logo-ar.webp" alt="شعار" style="height: 40px; border-radius: 8px;">
@@ -92,7 +93,7 @@
                     <img src="assets/images/Mojaz.webp" alt="Mojaz"
                         style="height: 64px; margin-bottom: 15px; border-radius: 8px; object-fit: contain; width: auto; max-width: 100%;">
                     <h3>تــقـريــر مــوجــز</h3>
-                    <p>للسيارات داخل السعوديه<br>( مع شرح برسله صوتيه وتشييك الاستدعاءات بالعيوب المصنعيه مجانا )</p>
+                    <p>للسيارات داخل السعوديه<br>( مع شرح برساله صوتيه وتشييك الاستدعاءات بالعيوب المصنعيه مجانا )</p>
                 </div>
                 <div class="service-card" style="background: var(--bg-dark);">
                     <img src="assets/images/carfax.webp" alt="Carfax"
@@ -113,7 +114,8 @@
                     <p>للسيارات المستوردة من اروبـا وبعض دول العالم الاخرى</p>
                 </div>
                 <div class="service-card" style="background: var(--bg-dark);">
-                    <img src="assets/images/koreanflag.webp" alt="كوريا" style="height: 64px; margin-bottom: 15px; border-radius: 8px; object-fit: contain; width: auto; max-width: 100%;">
+                    <img src="assets/images/koreanflag.webp" alt="كوريا"
+                        style="height: 64px; margin-bottom: 15px; border-radius: 8px; object-fit: contain; width: auto; max-width: 100%;">
                     <h3>تقارير كوريا</h3>
                     <p>للسيارات المستوردة من كوريا</p>
                 </div>
@@ -175,10 +177,12 @@
                     box-shadow: var(--shadow-sm);
                     transition: var(--transition);
                 }
+
                 .payment-logo:hover {
                     transform: translateY(-3px);
                     box-shadow: var(--shadow);
                 }
+
                 .payment-item {
                     display: flex;
                     align-items: center;
@@ -191,10 +195,12 @@
                     width: 250px;
                     max-width: 100%;
                 }
+
                 .payment-item:hover {
                     transform: translateY(-3px);
                     box-shadow: var(--shadow);
                 }
+
                 .payment-item img {
                     height: 60px;
                     width: auto;
@@ -202,6 +208,7 @@
                     object-fit: contain;
                     background: white;
                 }
+
                 .payment-item span {
                     color: #1e1e1e;
                     font-weight: 700;
@@ -245,26 +252,32 @@
             padding: 80px 0;
             background: var(--bg-surface);
         }
+
         .reviews-section.alt-bg {
             background: var(--bg-dark);
         }
+
         .reviews-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 24px;
             margin-top: 40px;
         }
+
         .reviews-grid::-webkit-scrollbar {
             width: 8px;
         }
+
         .reviews-grid::-webkit-scrollbar-track {
             background: var(--bg-surface);
             border-radius: 4px;
         }
+
         .reviews-grid::-webkit-scrollbar-thumb {
             background: var(--gold);
             border-radius: 4px;
         }
+
         .review-card {
             background: var(--bg-dark);
             border: 1px solid var(--border);
@@ -272,44 +285,53 @@
             padding: 24px;
             transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
         }
+
         .reviews-section.alt-bg .review-card {
             background: var(--bg-card);
         }
+
         .review-card:hover {
             transform: translateY(-5px);
             border-color: var(--gold);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
+
         .review-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 16px;
         }
+
         .review-stars {
             display: flex;
             gap: 4px;
             color: #fbbf24;
         }
+
         .review-source-img {
             height: 24px;
             border-radius: 4px;
         }
+
         .review-text {
             font-size: 1.05rem;
             line-height: 1.6;
             margin-bottom: 20px;
             color: var(--text-secondary);
         }
+
         .review-footer {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
+
         .review-author {
             font-weight: 700;
             color: var(--text-primary);
         }
+
         .review-date {
             font-size: 0.85rem;
             color: var(--text-muted);
@@ -323,35 +345,51 @@
                 <h2>آراء عملاء حراج</h2>
                 <p class="section-desc">شهادات نعتز بها من عملائنا في منصة حراج</p>
             </div>
-            
 
-            
+
+
 
             <div class="reviews-grid" id="haraj-reviews-grid" style="direction: rtl;">
                 <!-- Reviews injected via JS -->
             </div>
-            
-            <div style="text-align: center; margin-top: 40px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
-                <button id="load-more-reviews" class="cta-btn cta-primary" style="cursor: pointer; border: none; font-family: inherit;">عرض المزيد من التقييمات</button>
-                <a href="https://haraj.com.sa/users/%D8%A7%D9%81%D8%AD%D8%B5%20%D9%87%D8%A7" target="_blank" class="cta-btn cta-secondary">حسابنا في حراج</a>
+
+            <div
+                style="text-align: center; margin-top: 40px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <button id="load-more-reviews" class="cta-btn cta-primary"
+                    style="cursor: pointer; border: none; font-family: inherit;">عرض المزيد من التقييمات</button>
+                <a href="https://haraj.com.sa/users/%D8%A7%D9%81%D8%AD%D8%B5%20%D9%87%D8%A7" target="_blank"
+                    class="cta-btn cta-secondary">حسابنا في حراج</a>
             </div>
-            
+
+            <script src="https://cdn.jsdelivr.net/npm/appwrite@14.0.1"></script>
             <script>
                 document.addEventListener('DOMContentLoaded', async () => {
                     let reviews = [];
+                    const { Client, Databases, Query } = Appwrite;
+                    const client = new Client()
+                        .setEndpoint('https://cloud.appwrite.io/v1')
+                        .setProject('6a36c593002500c98660');
+                    const databases = new Databases(client);
+
                     try {
-                        const res = await fetch('/api/reviews');
-                        if (res.ok) {
-                            reviews = await res.json();
-                        }
-                    } catch(e) {
-                        console.error('Failed to load reviews', e);
+                        const res = await databases.listDocuments(
+                            '6a36cb6c0009fc808a1f',
+                            'reviews',
+                            [
+                                Query.limit(100),
+                                Query.orderDesc('$createdAt')
+                            ]
+                        );
+                        reviews = res.documents;
+                    } catch (e) {
+                        console.error('Failed to load reviews from Appwrite', e);
                     }
+                    
                     const grid = document.getElementById('haraj-reviews-grid');
                     const loadMoreBtn = document.getElementById('load-more-reviews');
                     let currentIndex = 0;
                     const reviewsPerLoad = 6;
-                    
+
                     const starsSvg = `
                         <div class="review-stars">
                             <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
@@ -376,13 +414,13 @@
                                 <p class="review-text">"${r.text}"</p>
                                 <div class="review-footer">
                                     <span class="review-author">${r.name}</span>
-                                    <span class="review-date">${r.date}</span>
+                                    <span class="review-date">${r.date || ''}</span>
                                 </div>
                             </div>
                         `).join('');
                         grid.insertAdjacentHTML('beforeend', html);
                         currentIndex += count;
-                        
+
                         if (currentIndex >= reviews.length) {
                             loadMoreBtn.style.display = 'none';
                         }
@@ -396,7 +434,7 @@
                     renderReviews(0, reviewsPerLoad);
                 });
             </script>
-        
+
 
     </section>
 
@@ -407,20 +445,36 @@
                 <h2>آراء عملائنا خارج موقع حراج</h2>
                 <p class="section-desc">آراء وتجارب عملائنا المباشرين</p>
             </div>
-            
+
             <div class="reviews-grid">
                 <!-- Review 1 -->
                 <div class="review-card">
                     <div class="review-header">
                         <div class="review-stars">
-                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                            </svg>
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                            </svg>
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                            </svg>
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                            </svg>
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                            </svg>
                         </div>
                     </div>
-                    <p class="review-text">"خدمة سريعة جداً، حصلت على تقرير كارفكس لسيارتي الأمريكية مع شرح مفصل من المهندس قبل الشراء، أنقذني من سيارة غارقة! شكراً لكم."</p>
+                    <p class="review-text">"خدمة سريعة جداً، حصلت على تقرير كارفكس لسيارتي الأمريكية مع شرح مفصل من
+                        المهندس قبل الشراء، أنقذني من سيارة غارقة! شكراً لكم."</p>
                     <div class="review-footer">
                         <span class="review-author">عبدالله الدوسري</span>
                         <span class="review-date">2026/05/12</span>
@@ -431,14 +485,30 @@
                 <div class="review-card">
                     <div class="review-header">
                         <div class="review-stars">
-                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                            </svg>
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                            </svg>
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                            </svg>
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                            </svg>
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                            </svg>
                         </div>
                     </div>
-                    <p class="review-text">"طلبت تقرير موجز وصراحة دقة واحترافية، وفعلاً الشرح الصوتي المرفق يخليك تفهم التقرير حتى لو مالك خبرة بالسيارات."</p>
+                    <p class="review-text">"طلبت تقرير موجز وصراحة دقة واحترافية، وفعلاً الشرح الصوتي المرفق يخليك تفهم
+                        التقرير حتى لو مالك خبرة بالسيارات."</p>
                     <div class="review-footer">
                         <span class="review-author">محمد السبيعي</span>
                         <span class="review-date">2026/04/28</span>
@@ -449,21 +519,37 @@
                 <div class="review-card">
                     <div class="review-header">
                         <div class="review-stars">
-                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                            </svg>
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                            </svg>
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                            </svg>
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                            </svg>
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                <path
+                                    d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                            </svg>
                         </div>
                     </div>
-                    <p class="review-text">"تعامل ممتاز، طلبت تقرير الإمارات وحصلت على كل تفاصيل الحوادث للسيارة قبل استيرادها للسعودية. يعطيكم العافية على الأمانة."</p>
+                    <p class="review-text">"تعامل ممتاز، طلبت تقرير الإمارات وحصلت على كل تفاصيل الحوادث للسيارة قبل
+                        استيرادها للسعودية. يعطيكم العافية على الأمانة."</p>
                     <div class="review-footer">
                         <span class="review-author">سلطان المطيري</span>
                         <span class="review-date">2026/04/05</span>
                     </div>
                 </div>
             </div>
-            
+
             <div style="text-align: center; margin-top: 40px;">
                 <a href="#contact" class="cta-btn cta-primary">شاركنا تجربتك معنا</a>
             </div>
@@ -472,26 +558,43 @@
 
     <style>
         .social-card {
-            display: flex; align-items: center; gap: 15px; padding: 20px; 
-            background: var(--bg-card); border: 1px solid var(--border); 
-            border-radius: var(--radius); text-decoration: none; 
-            color: var(--text-primary); transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: var(--transition);
         }
+
         .social-card:hover {
             transform: translateY(-5px);
             border-color: var(--gold);
             box-shadow: var(--shadow);
         }
+
         .social-icon-wrapper {
-            width: 46px; height: 46px; background: rgba(59,130,246,0.1); 
-            border: 1px solid var(--gold); color: var(--gold); 
-            border-radius: 12px; display: flex; align-items: center; 
-            justify-content: center; font-weight: bold; font-size: 1.2rem; flex-shrink: 0;
+            width: 46px;
+            height: 46px;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            flex-shrink: 0;
         }
     </style>
 
     <!-- Social Platforms Section -->
-    <section class="social-platforms-section" id="social-platforms" style="padding: 80px 0; background: var(--bg-dark);">
+    <section class="social-platforms-section" id="social-platforms"
+        style="padding: 80px 0; background: var(--bg-dark);">
         <div class="container">
             <div class="section-header">
                 <h2>حساباتنا في المنصات الأخرى</h2>
@@ -500,71 +603,108 @@
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
                 <!-- Haraj -->
                 <a href="https://haraj.com.sa/" target="_blank" class="social-card">
-                    <img src="assets/images/haraj.webp" alt="حراج" style="width: 46px; height: 46px; border-radius: 8px; flex-shrink: 0;">
+                    <img src="assets/images/haraj.webp" alt="حراج"
+                        style="width: 46px; height: 46px; border-radius: 8px; flex-shrink: 0;">
                     <div>
-                        <h3 style="font-size: 1.1rem; margin-bottom: 4px; color: var(--text-primary);">حسابنا في حراج</h3>
+                        <h3 style="font-size: 1.1rem; margin-bottom: 4px; color: var(--text-primary);">حسابنا في حراج
+                        </h3>
                     </div>
                 </a>
-                
+
                 <!-- Mstaml -->
                 <a href="https://www.mstaml.com/sa/carsvipv" target="_blank" class="social-card">
-                    <img src="assets/images/mstaml.webp" alt="مستعمل" style="width: 46px; height: 46px; border-radius: 8px; flex-shrink: 0;">
+                    <img src="assets/images/mstaml.webp" alt="مستعمل"
+                        style="width: 46px; height: 46px; border-radius: 8px; flex-shrink: 0;">
                     <div>
-                        <h3 style="font-size: 1.1rem; margin-bottom: 4px; color: var(--text-primary);">حسابنا في مستعمل</h3>
+                        <h3 style="font-size: 1.1rem; margin-bottom: 4px; color: var(--text-primary);">حسابنا في مستعمل
+                        </h3>
                     </div>
                 </a>
 
                 <!-- X / Twitter -->
                 <a href="https://x.com/sulimman666?s=09" target="_blank" class="social-card">
-                    <svg width="46" height="46" viewBox="0 0 24 24" fill="currentColor" style="color: #000; flex-shrink: 0; border-radius: 8px;"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    <svg width="46" height="46" viewBox="0 0 24 24" fill="currentColor"
+                        style="color: #000; flex-shrink: 0; border-radius: 8px;">
+                        <path
+                            d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                    </svg>
                     <div>
-                        <h3 style="font-size: 1.1rem; margin-bottom: 4px; color: var(--text-primary);">حسابنا في x (تويتر سابقًا)</h3>
+                        <h3 style="font-size: 1.1rem; margin-bottom: 4px; color: var(--text-primary);">حسابنا في x
+                            (تويتر سابقًا)</h3>
                     </div>
                 </a>
 
                 <!-- YouTube -->
                 <a href="https://youtube.com/@efhesha?si=tREsBwxPgstP6klA" target="_blank" class="social-card">
-                    <svg width="46" height="46" viewBox="0 0 24 24" fill="#FF0000" style="flex-shrink: 0; border-radius: 8px;"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.5 12 3.5 12 3.5s-7.505 0-9.377.55a3.016 3.016 0 0 0-2.122 2.136C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.55 9.376.55 9.376.55s7.505 0 9.377-.55a3.016 3.016 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    <svg width="46" height="46" viewBox="0 0 24 24" fill="#FF0000"
+                        style="flex-shrink: 0; border-radius: 8px;">
+                        <path
+                            d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.5 12 3.5 12 3.5s-7.505 0-9.377.55a3.016 3.016 0 0 0-2.122 2.136C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.55 9.376.55 9.376.55s7.505 0 9.377-.55a3.016 3.016 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+                    </svg>
                     <div>
-                        <h3 style="font-size: 1.1rem; margin-bottom: 4px; color: var(--text-primary);">حسابنا في يوتيوب</h3>
+                        <h3 style="font-size: 1.1rem; margin-bottom: 4px; color: var(--text-primary);">حسابنا في يوتيوب
+                        </h3>
                     </div>
                 </a>
 
                 <!-- Telegram Account -->
                 <a href="https://t.me/Mojazzzzzzz" target="_blank" class="social-card">
-                    <svg width="46" height="46" viewBox="0 0 24 24" fill="#0088cc" style="flex-shrink: 0; border-radius: 8px;"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.223-.548.223l.188-2.85 5.18-4.686c.223-.195-.054-.285-.346-.096l-6.405 4.032-2.76-.864c-.6-.188-.614-.6.125-.89l10.8-4.164c.5-.19.95.115.787.828z"/></svg>
+                    <svg width="46" height="46" viewBox="0 0 24 24" fill="#0088cc"
+                        style="flex-shrink: 0; border-radius: 8px;">
+                        <path
+                            d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.223-.548.223l.188-2.85 5.18-4.686c.223-.195-.054-.285-.346-.096l-6.405 4.032-2.76-.864c-.6-.188-.614-.6.125-.89l10.8-4.164c.5-.19.95.115.787.828z" />
+                    </svg>
                     <div>
-                        <h3 style="font-size: 1.1rem; margin-bottom: 4px; color: var(--text-primary);">حسابنا في تليجرام</h3>
+                        <h3 style="font-size: 1.1rem; margin-bottom: 4px; color: var(--text-primary);">حسابنا في تليجرام
+                        </h3>
                     </div>
                 </a>
 
                 <!-- Facebook -->
-                <a href="https://www.facebook.com/share/1ZKHDSgn1RQTa3F8/?mibextid=qi2Omg" target="_blank" class="social-card">
-                    <svg width="46" height="46" viewBox="0 0 24 24" fill="#1877F2" style="flex-shrink: 0; border-radius: 8px;"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                <a href="https://www.facebook.com/share/1ZKHDSgn1RQTa3F8/?mibextid=qi2Omg" target="_blank"
+                    class="social-card">
+                    <svg width="46" height="46" viewBox="0 0 24 24" fill="#1877F2"
+                        style="flex-shrink: 0; border-radius: 8px;">
+                        <path
+                            d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                    </svg>
                     <div>
-                        <h3 style="font-size: 1.1rem; margin-bottom: 4px; color: var(--text-primary);">حسابنا في فيسبوك</h3>
+                        <h3 style="font-size: 1.1rem; margin-bottom: 4px; color: var(--text-primary);">حسابنا في فيسبوك
+                        </h3>
                     </div>
                 </a>
 
                 <!-- Snapchat -->
-                <a href="https://www.snapchat.com/add/efhasha?share_id=cH5oI7L7Y_0&locale=ar-MA" target="_blank" class="social-card">
-                    <img src="assets/images/snapchat.webp" alt="سناب شات" style="width: 46px; height: 46px; border-radius: 8px; flex-shrink: 0; object-fit: contain;">
+                <a href="https://www.snapchat.com/add/efhasha?share_id=cH5oI7L7Y_0&locale=ar-MA" target="_blank"
+                    class="social-card">
+                    <img src="assets/images/snapchat.webp" alt="سناب شات"
+                        style="width: 46px; height: 46px; border-radius: 8px; flex-shrink: 0; object-fit: contain;">
                     <div>
-                        <h3 style="font-size: 1.1rem; margin-bottom: 4px; color: var(--text-primary);">حسابنا في سناب شات</h3>
+                        <h3 style="font-size: 1.1rem; margin-bottom: 4px; color: var(--text-primary);">حسابنا في سناب
+                            شات</h3>
                     </div>
                 </a>
 
                 <!-- WhatsApp -->
                 <a href="https://wa.me/message/2RBBDKNWCV2AF1?src=qr" target="_blank" class="social-card">
-                    <svg width="46" height="46" viewBox="0 0 24 24" fill="#25D366" style="flex-shrink: 0; border-radius: 8px;"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+                    <svg width="46" height="46" viewBox="0 0 24 24" fill="#25D366"
+                        style="flex-shrink: 0; border-radius: 8px;">
+                        <path
+                            d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z" />
+                    </svg>
                     <div>
-                        <h3 style="font-size: 1.1rem; margin-bottom: 4px; color: var(--text-primary);">حسابنا في واتساب</h3>
+                        <h3 style="font-size: 1.1rem; margin-bottom: 4px; color: var(--text-primary);">حسابنا في واتساب
+                        </h3>
                     </div>
                 </a>
 
                 <!-- Telegram Channel -->
                 <a href="https://t.me/mojazzzzzzzzzzz" target="_blank" class="social-card">
-                    <svg width="46" height="46" viewBox="0 0 24 24" fill="#0088cc" style="flex-shrink: 0; border-radius: 8px;"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.223-.548.223l.188-2.85 5.18-4.686c.223-.195-.054-.285-.346-.096l-6.405 4.032-2.76-.864c-.6-.188-.614-.6.125-.89l10.8-4.164c.5-.19.95.115.787.828z"/></svg>
+                    <svg width="46" height="46" viewBox="0 0 24 24" fill="#0088cc"
+                        style="flex-shrink: 0; border-radius: 8px;">
+                        <path
+                            d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.223-.548.223l.188-2.85 5.18-4.686c.223-.195-.054-.285-.346-.096l-6.405 4.032-2.76-.864c-.6-.188-.614-.6.125-.89l10.8-4.164c.5-.19.95.115.787.828z" />
+                    </svg>
                     <div>
                         <h3 style="font-size: 1.1rem; margin-bottom: 4px; color: var(--text-primary);">قناة تليجرام</h3>
                     </div>
@@ -580,7 +720,8 @@
                 <div class="contact-box">
                     <h3>تواصل معنا فقط وقت الي تبي التقرير تكرمًا</h3>
                     <div class="contact-buttons">
-                        <a href="https://wa.me/966598830561" class="cta-btn cta-whatsapp" target="_blank" dir="ltr" style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: auto; padding: 12px 24px;">
+                        <a href="https://wa.me/966598830561" class="cta-btn cta-whatsapp" target="_blank" dir="ltr"
+                            style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: auto; padding: 12px 24px;">
                             <span style="font-size: 1.2rem; font-weight: bold;">0598830561</span>
                         </a>
                     </div>
