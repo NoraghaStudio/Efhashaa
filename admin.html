@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
     <script>
         if (window.location.hostname === 'abu-rayan.com' || window.location.hostname === 'www.abu-rayan.com') {
@@ -11,7 +12,8 @@
     <title>لوحة تحكم افــــحــــــص هــــــــــا</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
     <style>
         :root {
             --bg-dark: #121418;
@@ -74,7 +76,8 @@
             gap: 12px;
         }
 
-        .nav-item:hover, .nav-item.active {
+        .nav-item:hover,
+        .nav-item.active {
             background: rgba(200, 164, 86, 0.1);
             color: var(--gold);
         }
@@ -120,7 +123,7 @@
             background: var(--danger);
             color: white;
         }
-        
+
         .btn-danger:hover {
             background: #e60000;
         }
@@ -136,8 +139,15 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         /* Forms & Inputs */
@@ -199,7 +209,7 @@
         .delete-overlay {
             position: absolute;
             inset: 0;
-            background: rgba(0,0,0,0.6);
+            background: rgba(0, 0, 0, 0.6);
             display: flex;
             justify-content: center;
             align-items: center;
@@ -275,7 +285,7 @@
             border-radius: 6px;
             transition: all 0.3s;
         }
-        
+
         .view-site-link:hover {
             background: var(--gold);
             color: var(--bg-dark);
@@ -302,9 +312,12 @@
             width: 100%;
             max-width: 400px;
         }
-        
+
         @media (max-width: 768px) {
-            body { flex-direction: column; }
+            body {
+                flex-direction: column;
+            }
+
             .sidebar {
                 width: 100%;
                 height: auto;
@@ -318,19 +331,67 @@
                 border-left: none;
                 border-bottom: 1px solid var(--border);
             }
-            .sidebar .logo { margin-bottom: 0; font-size: 1.1rem; }
-            .sidebar .logo img { height: 24px !important; }
-            .nav-item { margin-bottom: 0; padding: 0.5rem; font-size: 0.85rem; gap: 4px; }
-            .nav-item svg { width: 16px; height: 16px; }
-            .view-site-link { display: none; }
-            .main-content { margin-right: 0; margin-top: 70px; padding: 1.5rem 1rem; }
-            .header { flex-direction: column; gap: 1rem; align-items: flex-start; }
-            .header button { width: 100%; }
-            .review-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
-            .review-actions { width: 100%; display: flex; gap: 0.5rem; margin-right: 0 !important; }
-            .review-actions button { flex: 1; }
+
+            .sidebar .logo {
+                margin-bottom: 0;
+                font-size: 1.1rem;
+            }
+
+            .sidebar .logo img {
+                height: 24px !important;
+            }
+
+            .nav-item {
+                margin-bottom: 0;
+                padding: 0.5rem;
+                font-size: 0.85rem;
+                gap: 4px;
+            }
+
+            .nav-item svg {
+                width: 16px;
+                height: 16px;
+            }
+
+            .view-site-link {
+                display: none;
+            }
+
+            .main-content {
+                margin-right: 0;
+                margin-top: 70px;
+                padding: 1.5rem 1rem;
+            }
+
+            .header {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: flex-start;
+            }
+
+            .header button {
+                width: 100%;
+            }
+
+            .review-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .review-actions {
+                width: 100%;
+                display: flex;
+                gap: 0.5rem;
+                margin-right: 0 !important;
+            }
+
+            .review-actions button {
+                flex: 1;
+            }
         }
         }
+
         .settings-card {
             background: var(--bg-surface);
             border: 1px solid var(--border);
@@ -340,7 +401,7 @@
             margin-top: 2rem;
         }
     </style>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/appwrite@14.0.1"></script>
     <script>
         const { Client, Databases, ID, Query } = Appwrite;
@@ -352,14 +413,17 @@
         const COL_ID = 'reviews';
     </script>
 </head>
+
 <body>
 
     <div id="loginOverlay">
         <div class="login-box">
-            <img src="assets/images/logo-ar.webp" alt="افــــحــــــص هــــــــــا" style="height: 60px; margin-bottom: 1rem;">
+            <img src="assets/images/logo-ar.webp" alt="افــــحــــــص هــــــــــا"
+                style="height: 60px; margin-bottom: 1rem;">
             <h2 style="color: var(--gold); margin-bottom: 1rem;">لوحة التحكم</h2>
             <p style="color: var(--text-secondary); margin-bottom: 2rem;">الرجاء إدخال كلمة المرور للوصول</p>
-            <input type="password" id="adminPassword" class="form-control" placeholder="كلمة المرور..." style="margin-bottom: 1rem; text-align: center;" onkeypress="if(event.key === 'Enter') checkPassword()">
+            <input type="password" id="adminPassword" class="form-control" placeholder="كلمة المرور..."
+                style="margin-bottom: 1rem; text-align: center;" onkeypress="if(event.key === 'Enter') checkPassword()">
             <button class="btn" style="width: 100%;" onclick="checkPassword()">تسجيل الدخول</button>
             <p id="loginError" style="color: var(--danger); margin-top: 1rem; display: none;">كلمة المرور غير صحيحة!</p>
         </div>
@@ -371,15 +435,26 @@
             لوحة التحكم
         </div>
         <div class="nav-item active" onclick="switchTab('gallery')">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><circle cx="8.5" cy="8.5" r="1.5"></circle><polyline points="21 15 16 10 5 21"></polyline></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                <polyline points="21 15 16 10 5 21"></polyline>
+            </svg>
             معرض الصور
         </div>
         <div class="nav-item" onclick="switchTab('reviews')">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1-2-2h14a2 2 0 0 1 2 2z"></path></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1-2-2h14a2 2 0 0 1 2 2z"></path>
+            </svg>
             إدارة التقييمات
         </div>
         <div class="nav-item" onclick="switchTab('settings')">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="3"></circle>
+                <path
+                    d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z">
+                </path>
+            </svg>
             الإعدادات
         </div>
 
@@ -389,18 +464,25 @@
     </aside>
 
     <main class="main-content">
-        
+
         <!-- Gallery Section -->
         <section id="gallery" class="section active">
             <div class="header">
                 <h1>معرض الصور</h1>
             </div>
-            
+
             <label class="upload-area">
-                <input type="file" id="photoUpload" multiple accept="image/*" style="display: none;" onchange="handleFileUpload(event)">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2" style="margin-bottom: 1rem;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="17 8 12 3 7 8"></polyline><line x1="12" y1="3" x2="12" y2="15"></line></svg>
+                <input type="file" id="photoUpload" multiple accept="image/*" style="display: none;"
+                    onchange="handleFileUpload(event)">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="2"
+                    style="margin-bottom: 1rem;">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="17 8 12 3 7 8"></polyline>
+                    <line x1="12" y1="3" x2="12" y2="15"></line>
+                </svg>
                 <p style="color: var(--text-secondary); font-size: 1.1rem;">اضغط هنا لاختيار صور ورفعها</p>
-                <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.5rem;">سيتم ضغط الصور تلقائياً لتسريع الموقع</p>
+                <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.5rem;">سيتم ضغط الصور تلقائياً
+                    لتسريع الموقع</p>
             </label>
 
             <div class="gallery-grid" id="galleryContainer">
@@ -443,7 +525,7 @@
 
             <div class="settings-card">
                 <h3 style="color: var(--gold); margin-bottom: 1.5rem;">تغيير كلمة المرور</h3>
-                
+
                 <div class="form-group">
                     <label>كلمة المرور الحالية</label>
                     <input type="password" id="oldPassword" class="form-control" placeholder="أدخل كلمة المرور القديمة">
@@ -456,11 +538,13 @@
 
                 <div class="form-group">
                     <label>تأكيد كلمة المرور الجديدة</label>
-                    <input type="password" id="confirmNewPassword" class="form-control" placeholder="أعد إدخال كلمة المرور الجديدة">
+                    <input type="password" id="confirmNewPassword" class="form-control"
+                        placeholder="أعد إدخال كلمة المرور الجديدة">
                 </div>
 
                 <button class="btn" style="width: 100%;" onclick="changePassword()">حفظ كلمة المرور الجديدة</button>
-                <p id="passwordChangeStatus" style="margin-top: 1rem; text-align: center; display: none; font-weight: bold;"></p>
+                <p id="passwordChangeStatus"
+                    style="margin-top: 1rem; text-align: center; display: none; font-weight: bold;"></p>
             </div>
         </section>
 
@@ -501,7 +585,7 @@
             } else {
                 attempts++;
                 localStorage.setItem('adminLoginAttempts', attempts);
-                
+
                 if (attempts >= 3) {
                     localStorage.setItem('adminLockoutUntil', (now + 3600000).toString()); // 1 hour
                     errorElem.textContent = "تم قفل الحساب مؤقتاً لكثرة المحاولات الخاطئة.";
@@ -517,7 +601,7 @@
                 const lastActivity = parseInt(sessionStorage.getItem('lastAdminActivity') || '0');
                 const now = Date.now();
                 const idleLimit = 10 * 60 * 1000; // 10 minutes
-                
+
                 if (now - lastActivity > idleLimit) {
                     sessionStorage.removeItem('isAdminAuth');
                     sessionStorage.removeItem('lastAdminActivity');
@@ -528,7 +612,7 @@
                 }
             }
         }
-        
+
         checkAuthStatus();
 
         // Track user activity
@@ -537,7 +621,7 @@
                 sessionStorage.setItem('lastAdminActivity', Date.now().toString());
             }
         }
-        
+
         // Listen to various activity events
         ['mousemove', 'mousedown', 'keypress', 'scroll', 'touchstart'].forEach(evt => {
             document.addEventListener(evt, resetIdleTimer, true);
@@ -560,7 +644,7 @@
         function generateId(name, text) {
             try {
                 return btoa(unescape(encodeURIComponent(name + text))).substring(0, 15);
-            } catch(e) {
+            } catch (e) {
                 return 'id_' + Math.random().toString(36).substr(2, 9);
             }
         }
@@ -569,7 +653,7 @@
         function switchTab(tabId) {
             document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
             document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
-            
+
             document.getElementById(tabId).classList.add('active');
             event.currentTarget.classList.add('active');
         }
@@ -577,17 +661,17 @@
         // --- Gallery Logic ---
         function loadGallery() {
             const defaultPhotos = [];
-            for(let i=1; i<=18; i++) {
+            for (let i = 1; i <= 18; i++) {
                 defaultPhotos.push(`images/أعمالنا${i}.webp`);
             }
             const localPhotos = JSON.parse(localStorage.getItem('admin_photos') || '[]');
             const deletedPhotos = JSON.parse(localStorage.getItem('deleted_photos') || '[]');
-            
+
             const allPhotos = [...localPhotos, ...defaultPhotos].filter(p => !deletedPhotos.includes(p));
 
             const container = document.getElementById('galleryContainer');
             container.innerHTML = '';
-            
+
             allPhotos.forEach((photo) => {
                 container.innerHTML += `
                     <div class="gallery-item">
@@ -602,37 +686,37 @@
 
         function handleFileUpload(event) {
             const files = event.target.files;
-            if(!files.length) return;
+            if (!files.length) return;
 
             let photos = JSON.parse(localStorage.getItem('admin_photos') || '[]');
             let processed = 0;
 
             Array.from(files).forEach(file => {
                 const reader = new FileReader();
-                reader.onload = function(e) {
+                reader.onload = function (e) {
                     const img = new Image();
-                    img.onload = function() {
+                    img.onload = function () {
                         const canvas = document.createElement('canvas');
                         let width = img.width;
                         let height = img.height;
                         const max = 800; // Compress size
-                        
+
                         if (width > height) {
                             if (width > max) { height *= max / width; width = max; }
                         } else {
                             if (height > max) { width *= max / height; height = max; }
                         }
-                        
+
                         canvas.width = width;
                         canvas.height = height;
                         const ctx = canvas.getContext('2d');
                         ctx.drawImage(img, 0, 0, width, height);
-                        
+
                         const dataUrl = canvas.toDataURL('image/webp', 0.6); // Compress to webp 60%
                         photos.unshift(dataUrl);
-                        
+
                         processed++;
-                        if(processed === files.length) {
+                        if (processed === files.length) {
                             localStorage.setItem('admin_photos', JSON.stringify(photos));
                             loadGallery();
                             alert('تم رفع الصور بنجاح!');
@@ -645,15 +729,15 @@
         }
 
         function deletePhoto(photoUrl) {
-            if(!confirm('هل أنت متأكد من حذف هذه الصورة؟')) return;
-            
+            if (!confirm('هل أنت متأكد من حذف هذه الصورة؟')) return;
+
             let localPhotos = JSON.parse(localStorage.getItem('admin_photos') || '[]');
-            if(localPhotos.includes(photoUrl)) {
+            if (localPhotos.includes(photoUrl)) {
                 localPhotos = localPhotos.filter(p => p !== photoUrl);
                 localStorage.setItem('admin_photos', JSON.stringify(localPhotos));
             } else {
                 let deletedPhotos = JSON.parse(localStorage.getItem('deleted_photos') || '[]');
-                if(!deletedPhotos.includes(photoUrl)) deletedPhotos.push(photoUrl);
+                if (!deletedPhotos.includes(photoUrl)) deletedPhotos.push(photoUrl);
                 localStorage.setItem('deleted_photos', JSON.stringify(deletedPhotos));
             }
             loadGallery();
@@ -676,10 +760,10 @@
         async function loadReviews() {
             try {
                 const res = await databases.listDocuments(DB_ID, COL_ID, [
-                    Query.limit(500), 
+                    Query.limit(500),
                     Query.orderDesc('$createdAt')
                 ]);
-                
+
                 allReviews = res.documents.map(doc => ({
                     id: doc.$id,
                     name: doc.name,
@@ -687,29 +771,29 @@
                     date: doc.date,
                     isHaraj: doc.isHaraj !== false
                 }));
-                
+
                 renderReviews(allReviews);
-            } catch(e) {
+            } catch (e) {
                 console.error("Error loading reviews", e);
                 const harajContainer = document.getElementById('harajReviewsContainer');
-                if(harajContainer) harajContainer.innerHTML = '<p style="color: var(--danger);">حدث خطأ أثناء تحميل التقييمات من Appwrite.</p>';
+                if (harajContainer) harajContainer.innerHTML = '<p style="color: var(--danger);">حدث خطأ أثناء تحميل التقييمات من Appwrite.</p>';
             }
         }
 
         function renderReviews(reviews) {
             const localContainer = document.getElementById('localReviewsContainer');
             const harajContainer = document.getElementById('harajReviewsContainer');
-            
-            if(localContainer) localContainer.innerHTML = '';
-            if(harajContainer) harajContainer.innerHTML = '';
+
+            if (localContainer) localContainer.innerHTML = '';
+            if (harajContainer) harajContainer.innerHTML = '';
 
             const sortedReviews = [...reviews].sort((a, b) => new Date(b.date) - new Date(a.date));
 
             const harajReviews = sortedReviews.filter(r => r.isHaraj !== false);
             const localReviewsList = sortedReviews.filter(r => r.isHaraj === false);
 
-            if(localContainer) {
-                if(localReviewsList.length === 0) {
+            if (localContainer) {
+                if (localReviewsList.length === 0) {
                     localContainer.innerHTML = '<p style="color: var(--text-secondary);">لا توجد تقييمات من خارج حراج حالياً.</p>';
                 } else {
                     localReviewsList.forEach(r => {
@@ -718,8 +802,8 @@
                 }
             }
 
-            if(harajContainer) {
-                if(harajReviews.length === 0) {
+            if (harajContainer) {
+                if (harajReviews.length === 0) {
                     harajContainer.innerHTML = '<p style="color: var(--text-secondary);">لا توجد تقييمات من موقع حراج.</p>';
                 } else {
                     harajReviews.forEach(r => {
@@ -767,14 +851,14 @@
         function dragEnter(e) {
             e.preventDefault();
             const targetCard = e.target.closest('.review-card');
-            if(targetCard && targetCard.id !== `rev-card-${draggedReviewId}`) {
+            if (targetCard && targetCard.id !== `rev-card-${draggedReviewId}`) {
                 targetCard.style.borderTop = "2px solid var(--gold)";
             }
         }
 
         function dragLeave(e) {
             const targetCard = e.target.closest('.review-card');
-            if(targetCard) {
+            if (targetCard) {
                 targetCard.style.borderTop = "1px solid var(--border)";
             }
         }
@@ -788,7 +872,7 @@
         function drop(e) {
             e.preventDefault();
             const targetCard = e.target.closest('.review-card');
-            
+
             document.querySelectorAll('.review-card').forEach(c => {
                 c.style.opacity = '1';
                 c.style.borderTop = "1px solid var(--border)";
@@ -796,18 +880,18 @@
 
             if (targetCard && targetCard.id !== `rev-card-${draggedReviewId}`) {
                 const targetId = targetCard.id.replace('rev-card-', '');
-                
+
                 // Reorder allReviews array
                 const draggedIndex = allReviews.findIndex(r => r.id === draggedReviewId);
                 const targetIndex = allReviews.findIndex(r => r.id === targetId);
-                
+
                 const [draggedItem] = allReviews.splice(draggedIndex, 1);
                 allReviews.splice(targetIndex, 0, draggedItem);
-                
+
                 // Save new order to localStorage
                 const newOrder = allReviews.map(r => r.id);
                 localStorage.setItem('reviews_order', JSON.stringify(newOrder));
-                
+
                 renderReviews(allReviews);
             }
         }
@@ -816,7 +900,7 @@
             const newName = document.getElementById(`name-${id}`).value;
             const newText = document.getElementById(`text-${id}`).value;
             const newIsHaraj = document.getElementById(`haraj-${id}`).checked;
-            
+
             const btn = event.target;
             const originalText = btn.innerText;
             btn.innerText = "جاري الحفظ...";
@@ -830,17 +914,17 @@
                 });
                 alert('تم حفظ التعديلات بنجاح!');
                 await loadReviews();
-            } catch(e) {
+            } catch (e) {
                 alert("حدث خطأ أثناء التحديث.");
                 console.error(e);
             }
-            
+
             btn.innerText = originalText;
             btn.disabled = false;
         }
 
         async function deleteReview(id, isLocal) {
-            if(!confirm('هل أنت متأكد من حذف هذا التقييم؟')) return;
+            if (!confirm('هل أنت متأكد من حذف هذا التقييم؟')) return;
 
             const btn = event.target;
             const originalText = btn.innerText;
@@ -850,11 +934,11 @@
             try {
                 await databases.deleteDocument(DB_ID, COL_ID, id);
                 await loadReviews();
-            } catch(e) {
+            } catch (e) {
                 alert("حدث خطأ أثناء الحذف.");
                 console.error(e);
             }
-            
+
             btn.innerText = originalText;
             btn.disabled = false;
         }
@@ -864,7 +948,7 @@
             if (!name) return;
             const text = prompt("التقييم:");
             if (!text) return;
-            
+
             const today = new Date();
             const yyyy = today.getFullYear();
             const mm = String(today.getMonth() + 1).padStart(2, '0');
@@ -879,7 +963,7 @@
                 });
                 alert("تم الإضافة بنجاح!");
                 await loadReviews();
-            } catch(e) {
+            } catch (e) {
                 alert("حدث خطأ أثناء الإضافة.");
                 console.error(e);
             }
@@ -941,4 +1025,5 @@
 
     </script>
 </body>
+
 </html>
