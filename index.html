@@ -388,8 +388,11 @@
 
                     const renderReviews = (startIndex, count) => {
                         const chunk = reviews.slice(startIndex, startIndex + count);
-                        const html = chunk.map(r => `
+                        const html = chunk.map((r, i) => `
                             <div class="review-card">
+                                <div style="margin-bottom: 12px; font-weight: bold; color: var(--gold); font-size: 0.9rem;">
+                                    التقييم رقم ${663 - (startIndex + i)}
+                                </div>
                                 <div class="review-header">
                                     ${starsSvg}
                                     <img src="assets/images/haraj.webp" alt="حراج" class="review-source-img">
