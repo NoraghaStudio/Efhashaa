@@ -121,36 +121,36 @@
                 style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
                 <div class="service-card" style="background: var(--bg-dark);">
                     <img src="assets/images/Mojaz.webp" alt="Mojaz"
-                        style="height: 40px; margin-bottom: 15px; border-radius: 8px; background: white; padding: 4px;">
+                        style="height: 64px; margin-bottom: 15px; border-radius: 8px; background: white; padding: 6px; object-fit: contain; width: auto; max-width: 100%;">
                     <h3>تقرير موجز</h3>
                     <p>السعودية (مع شرح صوتي وتشييك الاستدعاءات مجاناً)</p>
                 </div>
                 <div class="service-card" style="background: var(--bg-dark);">
                     <img src="assets/images/carfax.webp" alt="Carfax"
-                        style="height: 40px; margin-bottom: 15px; border-radius: 8px; background: white; padding: 4px;">
+                        style="height: 64px; margin-bottom: 15px; border-radius: 8px; background: white; padding: 6px; object-fit: contain; width: auto; max-width: 100%;">
                     <h3>تقرير كارفكس</h3>
                     <p>للسيارات المستوردة من أمريكا</p>
                 </div>
                 <div class="service-card" style="background: var(--bg-dark);">
                     <img src="assets/images/AutoCheck.webp" alt="AutoCheck"
-                        style="height: 40px; margin-bottom: 15px; border-radius: 8px; background: white; padding: 4px;">
+                        style="height: 64px; margin-bottom: 15px; border-radius: 8px; background: white; padding: 6px; object-fit: contain; width: auto; max-width: 100%;">
                     <h3>تقرير أوتوشيك</h3>
                     <p>للسيارات المستوردة من كندا</p>
                 </div>
                 <div class="service-card" style="background: var(--bg-dark);">
                     <img src="assets/images/Carseer.webp" alt="CarSeer"
-                        style="height: 40px; margin-bottom: 15px; border-radius: 8px; background: white; padding: 4px;">
+                        style="height: 64px; margin-bottom: 15px; border-radius: 8px; background: white; padding: 6px; object-fit: contain; width: auto; max-width: 100%;">
                     <h3>تقرير كارسير</h3>
                     <p>للسيارات المستوردة من أوروبا</p>
                 </div>
                 <div class="service-card" style="background: var(--bg-dark);">
-                    <img src="https://flagcdn.com/w80/kr.webp" alt="كوريا" style="height: 40px; margin-bottom: 15px; border-radius: 8px; background: white; padding: 4px;">
+                    <img src="https://flagcdn.com/w80/kr.webp" alt="كوريا" style="height: 64px; margin-bottom: 15px; border-radius: 8px; background: white; padding: 6px; object-fit: contain; width: auto; max-width: 100%;">
                     <h3>تقارير كوريا</h3>
                     <p>للسيارات المستوردة من كوريا</p>
                 </div>
                 <div class="service-card" style="background: var(--bg-dark);">
                     <img src="assets/images/UAE.webp" alt="UAE"
-                        style="height: 40px; margin-bottom: 15px; border-radius: 8px; background: white; padding: 4px;">
+                        style="height: 80px; margin-bottom: 15px; border-radius: 8px; background: white; padding: 6px; object-fit: contain; width: auto; max-width: 100%;">
                     <h3>تقارير الإمارات</h3>
                     <p>تقرير الحوادث فقط للسيارات الواردة من الإمارات</p>
                 </div>
@@ -209,20 +209,63 @@
                     transform: translateY(-3px);
                     box-shadow: var(--shadow);
                 }
+                .payment-item {
+                    display: flex;
+                    align-items: center;
+                    background: white;
+                    border-radius: 8px;
+                    box-shadow: var(--shadow-sm);
+                    transition: var(--transition);
+                    overflow: hidden;
+                    padding-left: 16px;
+                }
+                .payment-item:hover {
+                    transform: translateY(-3px);
+                    box-shadow: var(--shadow);
+                }
+                .payment-item img {
+                    height: 50px;
+                    width: auto;
+                    padding: 8px 12px;
+                    object-fit: contain;
+                    background: white;
+                }
+                .payment-item span {
+                    color: #1e1e1e;
+                    font-weight: 700;
+                    font-size: 1rem;
+                    white-space: nowrap;
+                    margin-right: 8px;
+                }
             </style>
             <div
-                style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; max-width: 800px; margin: 0 auto;">
-                <img src="assets/images/barq.webp" alt="محفظة برق" class="payment-logo">
+                style="display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; max-width: 900px; margin: 0 auto;">
+                <div class="payment-item">
+                    <img src="assets/images/barq.webp" alt="محفظة برق">
+                    <span>محفظة برق</span>
+                </div>
                 <img src="assets/images/alrajhi.svg" alt="الراجحي" class="payment-logo">
-                <img src="assets/images/anb.webp" alt="العربي" class="payment-logo">
+                <div class="payment-item">
+                    <img src="assets/images/anb.webp" alt="العربي">
+                    <span>العربي</span>
+                </div>
                 <img src="assets/images/riyad.webp" alt="الرياض" class="payment-logo">
                 <img src="assets/images/snb.webp" alt="الأهلي" class="payment-logo">
                 <img src="assets/images/inma.webp" alt="الإنماء" class="payment-logo">
                 <img src="assets/images/albilad.webp" alt="البلاد" class="payment-logo">
                 <img src="assets/images/aljazeera.webp" alt="الجزيرة" class="payment-logo">
-                <img src="assets/images/inmapay.webp" alt="انماء باي urpay" class="payment-logo">
-                <img src="assets/images/stcpay.webp" alt="Stc pay" class="payment-logo">
-                <img src="assets/images/mobily.webp" alt="شحن رصيد موبايلي" class="payment-logo">
+                <div class="payment-item">
+                    <img src="assets/images/inmapay.webp" alt="انماء باي urpay">
+                    <span>انماء باي urpay</span>
+                </div>
+                <div class="payment-item">
+                    <img src="assets/images/stcpay.webp" alt="Stc pay">
+                    <span>Stc pay</span>
+                </div>
+                <div class="payment-item">
+                    <img src="assets/images/mobily.webp" alt="شحن رصيد موبايلي">
+                    <span>شحن رصيد موبايلي</span>
+                </div>
             </div>
         </div>
     </section>
