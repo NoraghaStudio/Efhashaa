@@ -221,7 +221,7 @@ body {
 
 .hero-main-logo {
     height: auto;
-    max-height: 180px;
+    max-height: 250px;
     width: auto;
     max-width: 100%;
     margin-bottom: 24px;
@@ -367,7 +367,7 @@ h1 {
 }
 
 .review-card {
-    background: var(--bg-card);
+    background: #e0f2fe;
     border: 1px solid var(--border);
     border-radius: var(--radius);
     padding: 24px;
@@ -390,7 +390,7 @@ h1 {
 }
 
 .review-card:hover {
-    background: var(--bg-card-hover);
+    background: #bae6fd;
     border-color: var(--border-hover);
     transform: translateY(-4px);
     box-shadow: var(--shadow);
@@ -742,7 +742,7 @@ h1 {
 }
 .ticker {
     display: flex;
-    animation: tickerMoveRTL 70s linear infinite;
+    animation: tickerMoveRTL 40s linear infinite;
 }
 .ticker-wrap:hover .ticker {
     animation-play-state: paused;

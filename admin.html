@@ -814,8 +814,9 @@
         }
 
         function generateAdminReviewHTML(r) {
+            const bg = r.isHaraj === false ? 'background: #dcfce7;' : '';
             return `
-                <div class="review-card" id="rev-card-${r.id}" draggable="true" ondragstart="dragStart(event)" ondragover="dragOver(event)" ondrop="drop(event)" ondragenter="dragEnter(event)" ondragleave="dragLeave(event)">
+                <div class="review-card" id="rev-card-${r.id}" style="${bg}" draggable="true" ondragstart="dragStart(event)" ondragover="dragOver(event)" ondrop="drop(event)" ondragenter="dragEnter(event)" ondragleave="dragLeave(event)">
                     <div class="review-header">
                         <div style="cursor: grab; margin-left: 1rem; color: var(--text-secondary);" title="اسحب لترتيب التقييم">
                             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg>
