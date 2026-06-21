@@ -372,7 +372,7 @@
     <section class="reviews-section" id="haraj-reviews">
         <div class="container">
             <div class="section-header">
-                <h2>آراء عملاء حراج</h2>
+                <h2>تقييمات عملائي في موقع حراج</h2>
                 <p class="section-desc">
                     <a href="https://haraj.com.sa/users/%D8%A7%D9%81%D8%AD%D8%B5%20%D9%87%D8%A7" target="_blank" style="color: inherit; text-decoration: underline; transition: color 0.3s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='inherit'">
                         شاهد أكثر من 700 تقييم اضغط هنا لتتأكد
@@ -443,11 +443,11 @@
                         } else {
                             const localHtml = localReviews.map((r, i) => `
                                 <div class="review-card">
-                                    <div style="margin-bottom: 12px; font-weight: bold; color: var(--gold); font-size: 0.9rem;">
-                                        التقييم رقم ${localReviews.length - i}
-                                    </div>
                                     <div class="review-header">
                                         ${starsSvg}
+                                        <div style="font-weight: bold; color: var(--gold); font-size: 0.9rem;">
+                                            التقييم رقم ${localReviews.length - i}
+                                        </div>
                                     </div>
                                     <p class="review-text">"${r.text}"</p>
                                     <div class="review-footer">
@@ -464,12 +464,14 @@
                         const chunk = harajReviews.slice(startIndex, startIndex + count);
                         const html = chunk.map((r, i) => `
                             <div class="review-card">
-                                <div style="margin-bottom: 12px; font-weight: bold; color: var(--gold); font-size: 0.9rem;">
-                                    التقييم رقم ${(172 + harajReviews.length) - (startIndex + i)}
-                                </div>
                                 <div class="review-header">
                                     ${starsSvg}
-                                    <img src="assets/images/haraj.webp" alt="حراج" class="review-source-img">
+                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                        <div style="font-weight: bold; color: var(--gold); font-size: 0.9rem;">
+                                            التقييم رقم ${(172 + harajReviews.length) - (startIndex + i)}
+                                        </div>
+                                        <img src="assets/images/haraj.webp" alt="حراج" class="review-source-img">
+                                    </div>
                                 </div>
                                 <p class="review-text">"${r.text}"</p>
                                 <div class="review-footer">
