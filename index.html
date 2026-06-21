@@ -437,8 +437,11 @@
                         if (localReviews.length === 0) {
                             localGrid.innerHTML = '<p style="text-align: center; color: var(--text-secondary); grid-column: 1/-1;">لا توجد تقييمات حالياً.</p>';
                         } else {
-                            const localHtml = localReviews.map((r) => `
+                            const localHtml = localReviews.map((r, i) => `
                                 <div class="review-card">
+                                    <div style="margin-bottom: 12px; font-weight: bold; color: var(--gold); font-size: 0.9rem;">
+                                        التقييم رقم ${localReviews.length - i}
+                                    </div>
                                     <div class="review-header">
                                         ${starsSvg}
                                     </div>
