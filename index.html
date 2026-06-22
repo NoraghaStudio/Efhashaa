@@ -13,6 +13,7 @@
         rel="stylesheet">
     <link rel="icon" type="image/webp" href="assets/images/efhashaa.webp">
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/appwrite@14.0.1"></script>
 </head>
 
 <body>
@@ -393,28 +394,14 @@
                     style="cursor: pointer; border: none; font-family: inherit;">عرض المزيد من التقييمات</button>
             </div>
 
-            <script src="https://cdn.jsdelivr.net/npm/appwrite@14.0.1"></script>
             <script>
                 document.addEventListener('DOMContentLoaded', async () => {
                     let reviews = [];
-                    const { Client, Databases, Query } = Appwrite;
-                    const client = new Client()
-                        .setEndpoint('https://fra.cloud.appwrite.io/v1')
-                        .setProject('6a36c593002500c98660');
-                    const databases = new Databases(client);
-
                     try {
-                        const res = await databases.listDocuments(
-                            '6a36cb6c0009fc808a1f',
-                            'reviews',
-                            [
-                                Query.limit(5000),
-                                Query.orderDesc('$createdAt')
-                            ]
-                        );
-                        reviews = res.documents;
+                        const res = await fetch('reviews.json');
+                        reviews = await res.json();
                     } catch (e) {
-                        console.error('Failed to load reviews from Appwrite', e);
+                        console.error('Failed to load reviews', e);
                     }
                     
                     const harajGrid = document.getElementById('haraj-reviews-grid');
