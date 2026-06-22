@@ -4,10 +4,10 @@
    ============================================ */
 
 :root {
-    --bg-dark: #f8fafc;
+    --bg-dark: #fef2f2;
     --bg-card: #ffffff;
-    --bg-card-hover: #f1f5f9;
-    --bg-surface: #f1f5f9;
+    --bg-card-hover: #fee2e2;
+    --bg-surface: #fee2e2;
     --gold: #dc2626;
     --gold-light: #f87171;
     --gold-dark: #b91c1c;
@@ -58,7 +58,7 @@ body {
 }
 
 .header.scrolled {
-    background: rgba(255,255,255,0.92);
+    background: rgba(220,38,38,0.95);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-bottom: 1px solid var(--border);
@@ -94,7 +94,7 @@ body {
 .header-cta {
     font-size: 0.85rem;
     padding: 8px 20px;
-    color: var(--text-primary);
+    color: #ffffff;
     font-weight: 600;
 }
 
