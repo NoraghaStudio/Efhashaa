@@ -43,7 +43,7 @@
         style="background: url('assets/images/efhashaa.webp') center/cover no-repeat; min-height: 100vh;">
         <div class="hero-bg-overlay"></div>
         <div class="container hero-content">
-            <img src="assets/images/efhashaa.webp" alt="افــــحــــــص هــــــــــا" class="hero-main-logo">
+            <img src="assets/images/efhashaa.webp" alt="افــــحــــــص هــــــــــا" class="hero-main-logo" style="border: 3px solid #d4af37; border-radius: 16px;">
             <h1><span style="color: #d4af37; -webkit-text-fill-color: #d4af37;">افــــحــــــص هــــــــــا</span><br>
                 <span
                     style="display: block; font-size: 1.4rem; font-weight: 700; color: #d4af37; -webkit-text-fill-color: #d4af37; margin-top: 12px; line-height: 1.6;">
@@ -372,7 +372,7 @@
     <section class="reviews-section" id="haraj-reviews">
         <div class="container">
             <div class="section-header">
-                <h2>تقييمات عملائي في موقع حراج</h2>
+                <h2>تقييمات عملائنا</h2>
                 <p class="section-desc">
                     <a href="https://haraj.com.sa/users/%D8%A7%D9%81%D8%AD%D8%B5%20%D9%87%D8%A7" target="_blank" style="color: inherit; text-decoration: underline; transition: color 0.3s;" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='inherit'">
                         شاهد أكثر من 700 تقييم اضغط هنا لتتأكد
@@ -420,12 +420,14 @@
                     const harajGrid = document.getElementById('haraj-reviews-grid');
                     const localGrid = document.getElementById('other-reviews-grid');
                     const loadMoreBtn = document.getElementById('load-more-reviews');
+                    const loadMoreOtherBtn = document.getElementById('load-more-other-reviews');
                     
                     let harajReviews = reviews.filter(r => r.isHaraj !== false);
                     let localReviews = reviews.filter(r => r.isHaraj === false);
 
-                    let currentIndex = 0;
-                    const reviewsPerLoad = 6;
+                    let harajCurrentIndex = 0;
+                    let localCurrentIndex = 0;
+                    const reviewsPerLoad = 3;
 
                     const starsSvg = `
                         <div class="review-stars">
@@ -437,30 +439,44 @@
                         </div>
                     `;
 
-                    if (localGrid) {
+                    const renderLocalReviews = (startIndex, count) => {
+                        if (!localGrid) return;
                         if (localReviews.length === 0) {
                             localGrid.innerHTML = '<p style="text-align: center; color: var(--text-secondary); grid-column: 1/-1;">لا توجد تقييمات حالياً.</p>';
-                        } else {
-                            const localHtml = localReviews.map((r, i) => `
-                                <div class="review-card">
-                                    <div class="review-header">
-                                        ${starsSvg}
-                                        <div style="font-weight: bold; color: var(--gold); font-size: 0.9rem;">
-                                            التقييم رقم ${localReviews.length - i}
-                                        </div>
-                                    </div>
-                                    <p class="review-text">"${r.text}"</p>
-                                    <div class="review-footer">
-                                        <span class="review-author">${r.name}</span>
-                                        <span class="review-date">${r.date || ''}</span>
+                            return;
+                        }
+                        
+                        const chunk = localReviews.slice(startIndex, startIndex + count);
+                        const html = chunk.map((r, i) => `
+                            <div class="review-card">
+                                <div class="review-header">
+                                    ${starsSvg}
+                                    <div style="font-weight: bold; color: var(--gold); font-size: 0.9rem;">
+                                        التقييم رقم ${localReviews.length - (startIndex + i)}
                                     </div>
                                 </div>
-                            `).join('');
-                            localGrid.innerHTML = localHtml;
+                                <p class="review-text">"${r.text}"</p>
+                                <div class="review-footer">
+                                    <span class="review-author">${r.name}</span>
+                                    <span class="review-date">${r.date || ''}</span>
+                                </div>
+                            </div>
+                        `).join('');
+                        
+                        localGrid.insertAdjacentHTML('beforeend', html);
+                        localCurrentIndex += count;
+
+                        if (loadMoreOtherBtn) {
+                            if (localCurrentIndex >= localReviews.length) {
+                                loadMoreOtherBtn.style.display = 'none';
+                            } else {
+                                loadMoreOtherBtn.style.display = 'block';
+                            }
                         }
-                    }
+                    };
 
                     const renderHarajReviews = (startIndex, count) => {
+                        if (!harajGrid) return;
                         const chunk = harajReviews.slice(startIndex, startIndex + count);
                         const html = chunk.map((r, i) => `
                             <div class="review-card">
@@ -480,22 +496,34 @@
                                 </div>
                             </div>
                         `).join('');
-                        if (harajGrid) harajGrid.insertAdjacentHTML('beforeend', html);
-                        currentIndex += count;
+                        
+                        harajGrid.insertAdjacentHTML('beforeend', html);
+                        harajCurrentIndex += count;
 
-                        if (currentIndex >= harajReviews.length && loadMoreBtn) {
-                            loadMoreBtn.style.display = 'none';
+                        if (loadMoreBtn) {
+                            if (harajCurrentIndex >= harajReviews.length) {
+                                loadMoreBtn.style.display = 'none';
+                            } else {
+                                loadMoreBtn.style.display = 'block';
+                            }
                         }
                     };
 
                     if (loadMoreBtn) {
                         loadMoreBtn.addEventListener('click', () => {
-                            renderHarajReviews(currentIndex, reviewsPerLoad);
+                            renderHarajReviews(harajCurrentIndex, reviewsPerLoad);
+                        });
+                    }
+                    
+                    if (loadMoreOtherBtn) {
+                        loadMoreOtherBtn.addEventListener('click', () => {
+                            renderLocalReviews(localCurrentIndex, reviewsPerLoad);
                         });
                     }
 
                     // Initial load
                     renderHarajReviews(0, reviewsPerLoad);
+                    renderLocalReviews(0, reviewsPerLoad);
                 });
             </script>
 
@@ -506,7 +534,7 @@
     <section class="reviews-section alt-bg" id="other-reviews">
         <div class="container">
             <div class="section-header">
-                <h2>آراء عملائنا خارج موقع حراج</h2>
+                <h2>تـقـيـيـمـات عـمـلائـنـا من المــوقــع</h2>
                 <p class="section-desc">آراء وتجارب عملائنا المباشرين</p>
             </div>
 
@@ -514,8 +542,9 @@
                 <!-- Local Reviews injected via JS -->
             </div>
 
-            <div style="text-align: center; margin-top: 40px;">
-                <a href="javascript:void(0)" onclick="openReviewModal()" class="cta-btn cta-primary">شاركنا تجربتك معنا</a>
+            <div style="text-align: center; margin-top: 40px; display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <button id="load-more-other-reviews" class="cta-btn cta-primary" style="cursor: pointer; border: none; font-family: inherit; display: none;">عرض المزيد من التقييمات</button>
+                <a href="javascript:void(0)" onclick="openReviewModal()" class="cta-btn cta-primary" style="background: var(--bg-card); color: var(--text-primary); border: 1px solid var(--border);">شاركنا تجربتك معنا</a>
             </div>
         </div>
     </section>
